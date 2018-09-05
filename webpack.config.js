@@ -17,7 +17,18 @@ module.exports = {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
         include: path.resolve(__dirname, './style.css'),
-      }
+      },
+      {
+        test: /\.(svg|png|jpe?g|gif)$/i,
+        use: {
+          loader: 'url-loader',
+          options: {
+            limit: 1024 * 10,
+            name: 'images/[name].[hash].[ext]',
+            publicPath: './dist/test/',
+          },
+        },
+      },
     ],
   },
 };
