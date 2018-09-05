@@ -1,10 +1,26 @@
 import React from 'react';
 import image from './webpack.svg';
-const App = () => (
-  <>
-    <img src={image} />
-    <div>hello react</div>
-  </>
-);
+import { hot } from 'react-hot-loader'
+class App extends React.Component {
+  state = {
+    count: 0,
+  }
+  componentDidMount () {
+    setInterval(() => {
+      this.setState({
+        count: this.state.count+1,
+      })
+    }, 1000);
+  }
+  
+  render() {
+    return (
+      <>
+        <img src={image} />
+        <div>hello refasfact{this.state.count}</div>
+      </>
+    );
+  }
+}
 
-export default App;
+export default hot(module)(App);

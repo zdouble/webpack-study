@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const htmlWebpackPlugin = require('html-webpack-plugin');
 const cleanWebpackPlugin = require('clean-webpack-plugin');
 module.exports = {
@@ -6,11 +7,16 @@ module.exports = {
     app: './src/index.js',
   },
   output: {
-    filename: './[name].[chunkhash:8].js',
+    filename: './[name].[hash:8].js',
     path: path.resolve(__dirname, './dist'),
+    publicPath: '/',
   },
   mode: 'development',
   devtool: 'source-map',
+  devServer: {
+    contentBase: './dist',
+    hot: true,
+  },
   module: {
     rules: [
       {
@@ -37,6 +43,7 @@ module.exports = {
   },
   plugins: [
     new cleanWebpackPlugin(['dist']),
+    new webpack.HotModuleReplacementPlugin(),
     new htmlWebpackPlugin({
       template: './index.html',
       minify: {
