@@ -3,15 +3,14 @@ const htmlWebpackPlugin = require('html-webpack-plugin');
 const cleanWebpackPlugin = require('clean-webpack-plugin');
 module.exports = {
   entry: {
-    app: './src/app.js',
-    bpp: './src/bpp.js',
-    cpp: './src/cpp.js',
+    app: './src/index.js',
   },
   output: {
-    filename: './[name].[hash:8].js',
+    filename: './[name].[chunkhash:8].js',
     path: path.resolve(__dirname, './dist'),
   },
   mode: 'development',
+  devtool: 'source-map',
   module: {
     rules: [
       {
@@ -30,7 +29,7 @@ module.exports = {
           loader: 'url-loader',
           options: {
             limit: 1024 * 10,
-            name: 'images/[name].[hash].[ext]',
+            name: 'images/[name].[hash:8].[ext]',
           },
         },
       },
@@ -40,17 +39,6 @@ module.exports = {
     new cleanWebpackPlugin(['dist']),
     new htmlWebpackPlugin({
       template: './index.html',
-      chunks: ['app'],
-    }),
-    new htmlWebpackPlugin({
-      filename: 'index2.html',
-      template: './index.html',
-      chunks: ['bpp'],
-    }),
-    new htmlWebpackPlugin({
-      filename: 'index3.html',
-      template: './index.html',
-      excludeChunks: ['app'],
       minify: {
         collapseWhitespace: true,
         collapseInlineTagWhitespace: true,
