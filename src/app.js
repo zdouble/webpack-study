@@ -17,7 +17,7 @@ class App extends React.Component {
     return (
       <>
         <img src={image} />
-        <div>hello refasfact{this.state.count}</div>
+        <div>hello react{this.state.count}</div>
       </>
     );
   }
