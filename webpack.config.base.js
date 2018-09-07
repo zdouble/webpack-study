@@ -1,6 +1,6 @@
 const path = require('path');
 const htmlWebpackPlugin = require('html-webpack-plugin');
-const cleanWebpackPlugin = require('clean-webpack-plugin');
+
 module.exports = {
   entry: {
     app: './src/index.js',
@@ -30,7 +30,6 @@ module.exports = {
     ],
   },
   plugins: [
-    new cleanWebpackPlugin(['dist']),
     new htmlWebpackPlugin({
       template: './index.html',
       minify: {
