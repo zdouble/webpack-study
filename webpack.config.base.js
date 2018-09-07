@@ -10,12 +10,12 @@ module.exports = {
       {
         test: /\.js$/,
         use: 'babel-loader',
-        include: path.resolve(__dirname, './src'),
+        include: path.resolve(__dirname, 'src'),
       },
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
-        include: path.resolve(__dirname, './src'),
+        include: path.resolve(__dirname, 'src'),
       },
       {
         test: /\.(svg|png|jpe?g|gif)$/i,
