@@ -3,19 +3,19 @@ const htmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
-    app: './src/index.js',
+    app: './client/src/index.jsx',
   },
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         use: 'babel-loader',
-        include: path.resolve(__dirname, 'src'),
+        include: path.resolve(__dirname, 'client'),
       },
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
-        include: path.resolve(__dirname, 'src'),
+        include: path.resolve(__dirname, 'client'),
       },
       {
         test: /\.(svg|png|jpe?g|gif)$/i,
@@ -30,11 +30,11 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['.js'],
+    extensions: ['.js', '.jsx'],
   },
   plugins: [
     new htmlWebpackPlugin({
-      template: './index.html',
+      template: './client/public/index.html',
       minify: {
         collapseWhitespace: true,
         collapseInlineTagWhitespace: true,
