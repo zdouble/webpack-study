@@ -29,6 +29,9 @@ module.exports = {
       },
     ],
   },
+  resolve: {
+    extensions: ['.js'],
+  },
   plugins: [
     new htmlWebpackPlugin({
       template: './index.html',
