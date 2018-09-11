@@ -4,13 +4,12 @@ const cleanWebpackPlugin = require('clean-webpack-plugin');
 const webpackBaseConfig = require('./webpack.config.base');
 module.exports = webpackMerge(webpackBaseConfig, {
   output: {
-    filename: './[name].[chunkhash:8].js',
+    filename: '[name].[chunkhash:8].js',
     path: path.resolve(__dirname, 'dist'),
+    chunkFilename: '[name].[chunkhash:8].chunk.js',
     publicPath: '/',
   },
   mode: 'production',
   devtool: 'source-map',
-  plugins: [
-    new cleanWebpackPlugin(['dist'])
-  ],
+  plugins: [new cleanWebpackPlugin(['dist'])],
 });
