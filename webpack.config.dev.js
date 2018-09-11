@@ -10,7 +10,7 @@ module.exports = webpackMerge(webpackBaseConfig, {
     publicPath: '/',
   },
   mode: 'development',
-  devtool: 'eval-source-map',
+  devtool: 'cheap-module-eval-source-map',
   devServer: {
     contentBase: path.resolve(__dirname, 'dist'),
     hot: true,
