@@ -1,7 +1,7 @@
 /* global document */
 
-import 'babel-polyfill';
-import 'isomorphic-fetch';
+// import 'babel-polyfill';
+// import 'isomorphic-fetch';
 import OfflinePluginRuntime from 'offline-plugin/runtime';
 import React from 'react';
 import ReactDOM from 'react-dom';

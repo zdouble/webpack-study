@@ -13,8 +13,8 @@ module.exports = {
         include: path.resolve(__dirname, 'client'),
       },
       {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
+        test: /\.scss$/,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
         include: path.resolve(__dirname, 'client'),
       },
       {
