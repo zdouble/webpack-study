@@ -8,16 +8,6 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
-        use: 'babel-loader',
-        include: path.resolve(__dirname, 'client'),
-      },
-      {
-        test: /\.scss$/,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
-        include: path.resolve(__dirname, 'client'),
-      },
-      {
         test: /\.(svg|png|jpe?g|gif)$/i,
         use: {
           loader: 'url-loader',
@@ -26,10 +16,16 @@ module.exports = {
             name: 'images/[name].[hash:8].[ext]',
           },
         },
+        exclude: /node_modules/,
+        include: path.resolve(__dirname, 'client'),
       },
     ],
+    
   },
   resolve: {
+    modules: [
+      path.resolve(__dirname, 'node_modules'),
+    ],
     extensions: ['.js', '.jsx'],
   },
   plugins: [
