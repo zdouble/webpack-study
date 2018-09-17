@@ -20,12 +20,9 @@ module.exports = {
         include: path.resolve(__dirname, 'client'),
       },
     ],
-    
   },
   resolve: {
-    modules: [
-      path.resolve(__dirname, 'node_modules'),
-    ],
+    modules: [path.resolve(__dirname, 'node_modules')],
     extensions: ['.js', '.jsx'],
   },
   plugins: [

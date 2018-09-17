@@ -5,7 +5,7 @@ const webpackBaseConfig = require('./webpack.config.base');
 module.exports = webpackMerge(webpackBaseConfig, {
   output: {
     filename: '[name].js',
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'client/public'),
     chunkFilename: '[name].chunk.js',
     publicPath: '/',
   },
@@ -28,7 +28,7 @@ module.exports = webpackMerge(webpackBaseConfig, {
     ],
   },
   devServer: {
-    contentBase: path.resolve(__dirname, 'dist'),
+    contentBase: path.resolve(__dirname, 'client/public'),
     hot: true,
   },
   plugins: [new webpack.HotModuleReplacementPlugin()],

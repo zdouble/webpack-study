@@ -6,6 +6,7 @@ const miniCssExtractPlugin = require('mini-css-extract-plugin');
 const optimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const bundleAnalyzerPlugin = require('webpack-bundle-analyzer')
   .BundleAnalyzerPlugin;
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const speedMeasurePlugin = require('speed-measure-webpack-plugin');
 const webpackBaseConfig = require('./webpack.config.base');
 
@@ -51,6 +52,9 @@ module.exports = getWebpackConfig(
         chunkFilename: '[name].[contenthash].chunk.css',
       }),
       new optimizeCssAssetsPlugin(),
+      new CopyWebpackPlugin([
+        { from: 'client/public' },
+      ]),
 
       new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /zh-cn/),
       ...(isAnalyze
