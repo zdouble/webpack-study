@@ -63,11 +63,38 @@ module.exports = getWebpackConfig(
     ],
     optimization: {
       splitChunks: {
+        maxInitialRequests: 6,
         cacheGroups: {
           commons: {
             chunks: 'all',
-            test: /[\\/]node_modules[\\/]/,
+            test: /\/node_modules\//,
             name: 'vendors',
+          },
+          reactBase: {
+            name: 'reactBase',
+            test: (module) => {
+              return /react|redux|prop-types/.test(module.context);
+            },
+            chunks: 'all',
+            priority: 2,
+          },
+          sdk: {
+            name: 'sdk',
+            test: /soundcloud/,
+            chunks: 'all',
+            priority: 2,
+          },
+          moment: {
+            name: 'moment',
+            test: /moment/,
+            chunks: 'all',
+            priority: 2,
+          },
+          components: {
+            name: 'components',
+            test: /\/client\/src\/components/,
+            chunks: 'all',
+            priority: 2,
           },
         },
       },
