@@ -2,7 +2,7 @@
 
 // import 'babel-polyfill';
 // import 'isomorphic-fetch';
-import OfflinePluginRuntime from 'offline-plugin/runtime';
+// import OfflinePluginRuntime from 'offline-plugin/runtime';·
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
@@ -12,7 +12,7 @@ import '../styles/main.scss';
 import RootContainer from './containers/RootContainer';
 import configureStore from './store/configureStore';
 
-OfflinePluginRuntime.install();
+// OfflinePluginRuntime.install();
 
 const render = (Component) => {
   ReactDOM.render(
