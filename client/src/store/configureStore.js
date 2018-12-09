@@ -6,7 +6,7 @@ const isDev = process.env.NODE_ENV !== 'production'
 const middlewares = [thunkMiddleware];
 
 if (isDev) {
-  middlewares.push(loggerMinddleware)
+  middlewares.push(loggerMinddleware);
 }
 const composeEnhancers = isDev && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const createStoreWithMiddleware = composeEnhancers(applyMiddleware(...middlewares))(createStore);
